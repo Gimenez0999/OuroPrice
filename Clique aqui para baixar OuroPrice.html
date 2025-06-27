@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>OuroPrice Simulado</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    max-width: 480px;
+    margin: auto;
+    padding: 20px;
+    background: #fffbe7;
+    color: #333;
+  }
+  h1 {
+    color: #d4af37;
+    text-align: center;
+  }
+  label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  input, select, button {
+    width: 100%;
+    font-size: 16px;
+    margin-top: 5px;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  button {
+    background-color: #d4af37;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  .resultado {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  .whatsapp-button {
+    display: block;
+    text-align: center;
+    margin: 30px auto 0;
+    background-color: #25D366;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 18px;
+  }
+</style>
+</head>
+<body>
+  <h1>OuroPrice</h1>
+  <p style="text-align:center;">Cotação simulada: <strong>R$ 466,75 por grama (24k)</strong></p>
+
+  <label for="peso">Peso do ouro (em gramas):</label>
+  <input type="number" id="peso" placeholder="Ex: 10" step="0.01" />
+
+  <label for="quilate">Selecione o quilate:</label>
+  <select id="quilate">
+    <option value="1.00">24k (100%)</option>
+    <option value="0.75">18k (75%)</option>
+    <option value="0.585">14k (58,5%)</option>
+    <option value="0.417">10k (41,7%)</option>
+  </select>
+
+  <button onclick="calcular()">Calcular Valor</button>
+
+  <div class="resultado" id="resultado"></div>
+
+  <a href="https://wa.me/5511991114730" target="_blank" class="whatsapp-button">💬 Fale conosco pelo WhatsApp</a>
+
+<script>
+  const cotacao = 466.75; // valor fixo com deságio aplicado, sem mostrar ao usuário
+
+  function calcular() {
+    const peso = parseFloat(document.getElementById("peso").value);
+    const quilate = parseFloat(document.getElementById("quilate").value);
+
+    if (isNaN(peso) || peso <= 0) {
+      alert("Por favor, insira um peso válido.");
+      return;
+    }
+
+    const valorFinal = peso * quilate * cotacao;
+
+    document.getElementById("resultado").innerText = 
+      "💰 Valor estimado: R$ " + valorFinal.toFixed(2).replace(".", ",");
+  }
+</script>
+</body>
+</html>
