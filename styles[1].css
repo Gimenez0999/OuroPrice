@@ -1,0 +1,83 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1c1c1c;
+    color: white;
+}
+
+.header {
+    background-color: #7b0000;
+    text-align: center;
+    padding: 20px 10px 10px;
+}
+
+.logo {
+    width: 220px;
+    max-width: 90%;
+    height: auto;
+}
+
+.slogan {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.calculator {
+    background-color: #2b2b2b;
+    margin: 30px auto;
+    padding: 25px;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px gold;
+    text-align: center;
+}
+
+label {
+    font-weight: bold;
+    color: gold;
+    display: block;
+    margin-top: 15px;
+    text-align: left;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    margin-top: 5px;
+    border: 2px solid gold;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+}
+
+button {
+    margin-top: 20px;
+    background-color: darkred;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    width: 100%;
+}
+
+#resultado {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    color: gold;
+}
+
+.whatsapp-button {
+    display: block;
+    margin-top: 20px;
+    background-color: #25D366;
+    color: white;
+    text-align: center;
+    padding: 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
