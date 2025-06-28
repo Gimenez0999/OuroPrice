@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OuroPrice</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #7c0000;
+      color: white;
+    }
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    .logo {
+      margin-top: 40px;
+    }
+    .logo img {
+      width: 100%;
+      max-width: 300px;
+    }
+    .slogan {
+      font-size: 1.1rem;
+      margin: 20px 0 40px;
+    }
+    .card {
+      background: #1f1f1f;
+      border-radius: 20px;
+      padding: 30px 20px;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+    }
+    label {
+      color: #ffc107;
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      text-align: left;
+    }
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      background: #000;
+      border: 2px solid #ffcc00;
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+    }
+    .btn-calc {
+      background: #8B0000;
+      color: white;
+      border: none;
+      padding: 15px;
+      width: 100%;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    .resultado {
+      background: #000;
+      color: #ffcc00;
+      border: 2px solid #ffcc00;
+      padding: 15px;
+      margin-top: 20px;
+      font-size: 1.4rem;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+    .whatsapp {
+      margin-top: 40px;
+    }
+    .whatsapp a {
+      display: inline-block;
+      background: #8B0000;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="logomarca.png" alt="OuroPrice Logo">
+    </div>
+    <div class="slogan">
+      Calcule quanto vale sua joia e garanta o melhor negócio no WhatsApp.
+    </div>
+    <div class="card">
+      <label for="peso">Peso (g)</label>
+      <input type="number" id="peso" placeholder="10">
+
+      <label for="teor">Teor</label>
+      <select id="teor">
+        <option value="24">24K</option>
+        <option value="22">22K</option>
+        <option value="18">18K</option>
+        <option value="14">14K</option>
+        <option value="10">10K</option>
+      </select>
+
+      <button class="btn-calc" onclick="calcular()">Calcular Valor</button>
+      <div class="resultado" id="resultado" style="display: none;">R$ 0,00</div>
+    </div>
+    <div class="whatsapp">
+      <a href="https://wa.me/5511991114730" target="_blank">📱 Fale conosco pelo WhatsApp</a>
+    </div>
+  </div>
+
+  <script>
+    function calcular() {
+      const peso = parseFloat(document.getElementById('peso').value);
+      const teor = document.getElementById('teor').value;
+
+      if (isNaN(peso)) return;
+
+      const cotacao24k = 330.00;
+      const desagio = 0.18;
+      const valorBase = cotacao24k * (1 - desagio);
+
+      const teores = {
+        "24": 1,
+        "22": 0.89,
+        "18": 0.69,
+        "14": 0.40,
+        "10": 0.12
+      };
+
+      const resultado = peso * valorBase * teores[teor];
+      document.getElementById('resultado').innerText = "R$ " + resultado.toFixed(2).replace('.', ',');
+      document.getElementById('resultado').style.display = "block";
+    }
+  </script>
+</body>
+</html>
